@@ -1,0 +1,36 @@
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+require __DIR__.'/app/User.php';
+
+use Google\Client as GoogleClient;
+use Google\Service\Fitness\Session;
+use \App\Session\User;
+
+
+if (!isset($_POST['credential']) || !isset($_POST['g_csrf_token'])) {
+    header('location: index.php');
+    exit();
+}else{
+}
+
+$cookie = $_COOKIE['g_csrf_token']??"";
+
+if ($_POST['g_csrf_token'] != $cookie) {
+    header('location: index.php');
+    exit;
+}
+
+
+// Get $id_token via HTTPS POST.
+
+$client = new GoogleClient(['client_id' => '295882943021-cq6shejjubbn201h9guh65hdpn08ru20.apps.googleusercontent.com']); 
+ // Specify the CLIENT_ID of the app that accesses the backend
+$payload = $client->verifyIdToken($_POST['credential']);
+if (isset($payload['email'])) {
+    User::login($payload['name'], $payload['email']);
+    header('location: index.php');
+    exit;
+}
+
+die('Problema');

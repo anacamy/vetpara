@@ -17,7 +17,7 @@ class Login{
         $this->dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
     }
 
-    function logarUser(){
+    public function logarUser(){
         $this->email = $this->dados["email"];
         $this->senha = $this->dados["senha"];
 

@@ -534,21 +534,22 @@ $info = \App\Session\User::getInfo();
         
         <div class="col-lg-4">
           <div class="pricing-item-pro">   
-            <form id="fm-feedback" action="">
+            <form id="fm-feedback" method="POST" action="../../vetpara/classes/Formfeed.php">
             <img src="images/LOGO.png" width="70%" height="100%"> <br><br><br>
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Nome</label>
-              <input type="text" class="form-control" id="Nome" placeholder="Nome">
+              <input type="text" class="form-control" value="<?=$info['name']?>" id="Nome" name="Nome" placeholder="Nome">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Email</label>
+              <input type="text" class="form-control" value="<?=$info['email']?>" id="Email" name="Email" placeholder="Email">
             </div>
             <div class="mb-3">
               <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
-              <textarea class="form-control" id="Mensagem" rows="3" placeholder="Mensagem"></textarea>
+              <textarea class="form-control" id="Mensagem" rows="3" name="Mensagem" placeholder="Mensagem"></textarea>
             </div>
               <div class="col-12">
                 <button class="btn btn-primary" type="submit" id="btn-enviar" >Enviar</button>
-              </div>
-              <div id="response">  
-
               </div>
             </form>
           </div>
@@ -667,35 +668,5 @@ $info = \App\Session\User::getInfo();
   <script src="assets/js/custom.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script type="text/javascript">
-  $(document).ready(function() {
-      $("#btn-enviar").on('click', function() {
-          var nome = $("#Nome").val();
-          var mensagem = $("#Mensagem").val();
-
-          if (nome == "" || mensagem == "")
-              alert("Preencha os campos obrigatórios!");
-          else {
-              $.ajax({
-                  url: 'Formfeed.php',
-                  method: 'POST',
-                  data: {
-                      login: 1,
-                      type: "text",
-                      nomePHP: nome,
-                      mensagemPHP: mensagem
-                  },
-                  success: function(response) {
-                      $("#response").html(response);
-
-                      if (response.indexOf('success') >= 0)
-                          window.location = 'index.php';
-                  },
-                  dataType: 'text'
-              });
-          }
-      });
-  });
-  </script> 
 </body>
 </html>

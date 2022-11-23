@@ -8,10 +8,12 @@ class Cadastro{
     private $fone;
     private $email;
     private $senha;
+    private $cadastrado;
 
     public function __construct(){
         $this->conn = new DBConnection();
         $this->dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        $this->cadastrado = 0;
     }
 
     public function cadastarUser(){
@@ -20,8 +22,15 @@ class Cadastro{
         $this->email = $this->dados["email"];
         $this->senha = $this->dados["senha"];
 
-        $sqlCode = "INSERT INTO usuarios (nome, telefone, email, senha) VALUES ('$this->nome', '$this->fone', '$this->email', '$this->senha');";
-        $this->conn->query($sqlCode);
+        $sqlCode = "SELECT * FROM usuarios WHERE email = '$this->email' AND senha = '$this->senha';";
+        $sqlResults = $this->conn->query($sqlCode);
+        $rowCount = $sqlResults->num_rows;
+        if($rowCount != 0){
+            echo "Usuario já existente";
+        }else{
+            $sqlCode = "INSERT INTO usuarios (nome, telefone, email, senha) VALUES ('$this->nome', '$this->fone', '$this->email', '$this->senha');";
+            $this->conn->query($sqlCode);
+        }
     }
 
     public function cadastarUserGoogle($nome, $email){

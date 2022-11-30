@@ -1,5 +1,7 @@
 <?php
 
+//Cadastro
+
 require __DIR__.'/vendor/autoload.php';
 require __DIR__.'/app/User.php';
 require_once('../vetpara/classes/Cadastro.php');

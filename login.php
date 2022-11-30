@@ -1,6 +1,5 @@
 <?php
 
-
 require __DIR__.'/vendor/autoload.php';
 require __DIR__.'/app/User.php';
 require_once('../vetpara/classes/Cadastro.php');
@@ -10,12 +9,14 @@ use Google\Service\Fitness\Session;
 use \App\Session\User;
 use Google\Service\Forms\Info;
 
+//Verifica as credenciais da conta google do usuário,e se não receber ele volta para a index
+
 if (!isset($_POST['credential']) || !isset($_POST['g_csrf_token'])) {
     header('location: index.php');
     exit();
 }else{
 }
-
+//código disponibizado no site da google
 $cookie = $_COOKIE['g_csrf_token']??"";
 
 if ($_POST['g_csrf_token'] != $cookie) {

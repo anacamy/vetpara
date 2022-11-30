@@ -1,5 +1,9 @@
 <?php
 
+//Controla a sessão dos logins
+//Cria sessão quando o usuário faz um login pelo google ou manualmente 
+//Arquivo disponibilizado pelo google
+
 namespace App\Session;
 
 class User{

@@ -1,4 +1,6 @@
 <?php
+//Mandando o feedback para o banco de dados 
+
 require_once("../database/DBConnection.class.php");
 
 class Formfeed {

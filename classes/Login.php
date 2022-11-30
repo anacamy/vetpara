@@ -1,5 +1,7 @@
 <?php
 
+//Verifica se o usuário existe no banco de dados, para então fazer o login
+
 use App\Session\User;
 
 require_once("../database/DBConnection.class.php");

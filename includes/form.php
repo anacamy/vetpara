@@ -549,7 +549,32 @@
     </div>
   </div>
 </div>
+<div id="about" class="about-us section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 align-self-center">
+        <div class="section-heading">
+          <h4> Comentários </h4>
+          <img src="assets/images/heading-line-dec.png" alt="">
 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="service-item second-serhhhsrhhvice">
+        
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
 <footer id="newsletter">
 
   <div class="container">
@@ -596,19 +621,7 @@
           </ul>
         </div>
       </div>
-      <!--<div class="col-lg-3">
-          <div class="footer-widget">
-            <h4>Useful Links</h4>
-            <ul>
-              <li ><a class="fa fa-instagram" href="#">Free Apps</a></li>
-              <li><a href="#">App Engine</a></li>
-              <li><a href="#">Programming</a></li>
-              <li><a href="#">Development</a></li>
-              <li><a href="#">App News</a></li>
-            </ul>
-            
-          </div> 
-        </div>-->
+     
       <div class="col-lg-3">
         <div class="footer-widget">
           <h4>Centro Veterinário Paraíso</h4>

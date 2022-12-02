@@ -26,7 +26,7 @@ class Cadastro{
         $sqlResults = $this->conn->query($sqlCode);
         $rowCount = $sqlResults->num_rows;
         if($rowCount != 0){
-            echo "Usuario já existente";
+            $_SESSION['msg'] = "<div class='alert alert-danger'>Usuário já existe!</div>";
         }else{
             $sqlCode = "INSERT INTO usuarios (nome, telefone, email, senha) VALUES ('$this->nome', '$this->fone', '$this->email', '$this->senha');";
             $this->conn->query($sqlCode);

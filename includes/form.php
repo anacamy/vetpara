@@ -91,6 +91,7 @@
       <a href="#" class="forgot_password">Esqueceu a senha?</a>
     </div>
 
+
     <!-- Register Form -->
     <div class="user_register">
       <form method="post" action="../../vetpara/classes/Cadastro.php">
@@ -549,32 +550,44 @@
     </div>
   </div>
 </div>
-<div id="about" class="about-us section">
-  <div class="container">
-    <div class="row">
+  </br>
+  </br>
+  </br>
+      <div id="coments"> 
+        <div class="postagem">
+        <div class="row">
       <div class="col-lg-6 align-self-center">
         <div class="section-heading">
           <h4> Comentários </h4>
           <img src="assets/images/heading-line-dec.png" alt="">
-
         </div>
       </div>
     </div>
-  </div>
-</div>
-<br>
+          <p>Cadastre-se no nosso site e deixe o seu feedback, dúvidas ou avaliação no formulário acimas. Seu comentário aparecerá no nosso quadro, podendo ser respondida pela nossa equipe. </p>
+            </br>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-3">
-      <div class="service-item second-serhhhsrhhvice">
-        
+          <span class="abre_coment">Comentários</span>
+          <div id="comentarios"> 
+            <div class="comentarios">
+            <strong>Nome</strong>
+            <p>Comentário</p>
+            </div>
+            <div class="comentarios">
+            <strong>Nome</strong>
+            <p>Comentário</p>
+            </div>
+            <div class="comentarios">
+            <strong>Nome</strong>
+            <p>Comentário</p>
+            </div>
+            <div class="comentarios">
+            <strong>Nome</strong>
+            <p>Comentário</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
-  </div>
-</div>
-</div>
+
 <footer id="newsletter">
 
   <div class="container">
@@ -621,7 +634,19 @@
           </ul>
         </div>
       </div>
-     
+      <!--<div class="col-lg-3">
+          <div class="footer-widget">
+            <h4>Useful Links</h4>
+            <ul>
+              <li ><a class="fa fa-instagram" href="#">Free Apps</a></li>
+              <li><a href="#">App Engine</a></li>
+              <li><a href="#">Programming</a></li>
+              <li><a href="#">Development</a></li>
+              <li><a href="#">App News</a></li>
+            </ul>
+            
+          </div> 
+        </div>-->
       <div class="col-lg-3">
         <div class="footer-widget">
           <h4>Centro Veterinário Paraíso</h4>

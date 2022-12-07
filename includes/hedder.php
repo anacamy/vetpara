@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="assets/css/templatemo-chain-app-dev.css">
     <link rel="stylesheet" href="assets/css/animated.css">
     <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/estilo.css">
     <link href="./configure.php">
     <link href="./DBConnection.class.php">
     <link href="./configure.php">

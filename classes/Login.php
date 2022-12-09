@@ -35,7 +35,7 @@ class Login{
             $session->login($this->user["nome"]["nome"], $this->user["nome"]["email"]);
             header('location: ../index.php');
         }else{
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Login ou senha incorreto!</div>";
+            header("Location: ../index.php");
         }
     }
 }

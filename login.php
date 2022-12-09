@@ -2,7 +2,7 @@
 
 require __DIR__.'/vendor/autoload.php';
 require __DIR__.'/app/User.php';
-require_once('../vetpara/classes/Cadastro.php');
+require_once('classes/Cadastro.php');
 
 use Google\Client as GoogleClient;
 use Google\Service\Fitness\Session;

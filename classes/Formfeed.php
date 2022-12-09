@@ -19,6 +19,8 @@ class Formfeed {
         $email = $_POST['Email'];
         $sqlCommand = ("INSERT INTO feedback(nome, email, mensagem) VALUES ('$nome', '$email', '$mensagem');");
         $conn-> query($sqlCommand);
+        session_start();
+        $_SESSION['sucesso'] = "Enviado com sucesso!";
     }
 
 }

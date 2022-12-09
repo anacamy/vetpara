@@ -22,9 +22,9 @@ class DBConnection {
     function __construct() {
 
         
-        $this->setHost( "localhost" );
-        $this->setUser( "root" );
-        $this->setPass( "" );
+        $this->setHost( "51.79.72.47" );
+        $this->setUser( "hostdeprojetos_grums" );
+        $this->setPass( "~Bp7XwlL%oBP" );
         $this->setDb  ( "hostdeprojetos_vetparaiso" );
         $this->setConn( mysqli_connect($this->host, $this->user, $this->pass, $this->getDb() ));
         // Check connection

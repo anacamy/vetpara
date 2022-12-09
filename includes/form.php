@@ -88,7 +88,7 @@
           <div class="one_half last"><button type="submit" class="btn btn_red">Login</button></div>
         </div>
       </form>
-      <a href="#" class="forgot_password">Esqueceu a senha?</a>
+      <a href="includes/senha.php" class="forgot_password">Esqueceu a senha?</a>
     </div>
 
 
@@ -106,10 +106,6 @@
 
         <label>Email</label>
         <input id="email" name="email" type="email" />
-        <br />
-
-        <label>Senha</label>
-        <input id="senha" name="senha" type="password" />
         <br />
 
         <div class="checkbox">
@@ -483,46 +479,6 @@
       <div class="col-lg-4">
         <div class="pricing-item-pro">
               <h4>Comentarios: </h4>
-        <?php
-        require_once("/xampp/htdocs/vetpara/database/DBConnection.class.php");
-        $conn = new DBConnection();
-        $user = array();
-          $viewList =
-            "
-                SELECT nome, mensagem FROM feedback;
-                      ";
-          $sqlResults = $conn->query($viewList);
-          while ($row = $sqlResults->fetch_assoc()) {
-            $user['nome'] = $row;
-          }
-          $total = $sqlResults->num_rows;
-        ?>
-          <form>
-            <table class='table table-striped table-bordered table-hover'>
-              <thead>
-                <tr class='active'>
-                  <th>Cliente</th>
-                  <th>Mensagem</th>
-                </tr>
-              </thead>
-              <tbody>
-              <?php
-                  if($total > 0) {
-                    do {
-                ?>
-                  <tr>
-                    <td><?=  $user["nome"]["nome"]  ?></td>
-                    <td><?= $user["nome"]["mensagem"] ?></td>
-                  </tr>
-                  <?php
-                    // finaliza o loop que vai mostrar os dados
-                    }while($user == $total);
-                  // fim do if
-                  }
-                ?>
-              </tbody>
-            </table>
-          </form>
         </div>
       </div>
 
@@ -566,24 +522,29 @@
           <p>Cadastre-se no nosso site e deixe o seu feedback, dúvidas ou avaliação no formulário acimas. Seu comentário aparecerá no nosso quadro, podendo ser respondida pela nossa equipe. </p>
             </br>
 
-          <span class="abre_coment">Comentários</span>
           <div id="comentarios"> 
-            <div class="comentarios">
-            <strong>Nome</strong>
-            <p>Comentário</p>
-            </div>
-            <div class="comentarios">
-            <strong>Nome</strong>
-            <p>Comentário</p>
-            </div>
-            <div class="comentarios">
-            <strong>Nome</strong>
-            <p>Comentário</p>
-            </div>
-            <div class="comentarios">
-            <strong>Nome</strong>
-            <p>Comentário</p>
-            </div>
+              <?php
+              $conn = new PDO('mysql:host=51.79.72.47;dbname=hostdeprojetos_vetparaiso', 'hostdeprojetos_grums', '~Bp7XwlL%oBP');
+
+              $query = "SELECT * FROM feedback ORDER BY id DESC LIMIT 5;";
+              $resultSet = $conn->query($query);
+              
+              $result = $resultSet->fetchAll(PDO::FETCH_ASSOC);
+              
+              foreach ($result as $linha) {
+                $nome = $linha['nome'];
+                $mensagem = $linha['mensagem'];
+                $resposta = $linha['resposta'];
+                echo "<div class='comentarios'>
+                <strong>$nome</strong>
+                <p>$mensagem</p>";
+                if($resposta != NULL){
+                  echo "<strong>Vet Paraiso</strong> <p>$resposta</p></div>";
+                }else{
+                  echo "</div>";
+                }
+              }
+            ?>
           </div>
         </div>
       </div>

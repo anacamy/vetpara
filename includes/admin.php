@@ -1,7 +1,5 @@
 <?php
-
-$info = \App\Session\User::getInfo();
-
+$info = App\Session\User::getInfo();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -534,7 +532,7 @@ $info = \App\Session\User::getInfo();
         
         <div class="col-lg-4">
           <div class="pricing-item-pro">   
-            <form id="fm-feedback" method="POST" action="../../vetpara/classes/Formfeed.php">
+            <form id="fm-feedback">
             <img src="images/LOGO.png" width="70%" height="100%"> <br><br><br>
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Nome</label>
@@ -549,9 +547,11 @@ $info = \App\Session\User::getInfo();
               <textarea class="form-control" id="Mensagem" rows="3" name="Mensagem" placeholder="Mensagem"></textarea>
             </div>
               <div class="col-12">
-                <button class="btn btn-primary" type="submit" id="btn-enviar" >Enviar</button>
+                <button class="btn btn-primary" type="button" id="btn-enviar" >Enviar</button>
               </div>
             </form>
+            <div id="response">
+            </div>
           </div>
         </div> 
             
@@ -668,5 +668,36 @@ $info = \App\Session\User::getInfo();
   <script src="assets/js/custom.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function(){
+      $("#btn-enviar").on('click', function() {
+      var email = $("#Email").val();
+      var nome = $("#Nome").val();
+      var mensagem = $("#Mensagem").val();
+
+            $.ajax({
+                url: './classes/Formfeed.php',
+                method: 'POST',
+                data: {
+                    login: 1,
+                    type: "text",
+                    Email: email,
+                    Nome: nome,
+                    Mensagem: mensagem
+                },
+                success: function(response) {
+                    $("#response").html(response);
+
+                    if (response.indexOf('success') >= 0)
+                    window.location.href = "admin.php";
+                },
+                dataType: 'text'
+            }).done(function(){
+                alert("Enviado com sucesso!");
+                $("#fm-feedback").trigger('reset');
+            });
+          });
+        });
+  </script>
 </body>
 </html>

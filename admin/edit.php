@@ -9,10 +9,13 @@ $id = $_POST['id'];
 if(isset($_POST['responder']) || isset($_POST['editar'])){
     $SqlCommand = "UPDATE feedback SET resposta = '$reposta' WHERE id = '$id';";
     $conn->query($SqlCommand);
+    header("location: controle.php");
 }elseif(isset($_POST['apagarFeed'])){
     $SqlCommand = "DELETE FROM feedback WHERE id = '$id';";
     $conn->query($SqlCommand);
+    header("location: controle.php");
 }elseif(isset($_POST['apagarUser'])){
     $SqlCommand = "DELETE FROM usuarios WHERE email='$email';";
     $conn->query($SqlCommand);
+    header("location: controle.php");
 }

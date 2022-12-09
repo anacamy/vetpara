@@ -191,7 +191,7 @@
 
           <div id="comentarios"> 
               <?php
-              $conn = new PDO('mysql:host=51.79.72.47;dbname=hostdeprojetos_vetparaiso', 'hostdeprojetos_grums', '');
+              $conn = new PDO('mysql:host=51.79.72.47;dbname=hostdeprojetos_vetparaiso', 'hostdeprojetos_grums', '~Bp7XwlL%oBP');
 
               $query = "SELECT * FROM feedback;";
               $resultSet = $conn->query($query);

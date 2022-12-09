@@ -13,14 +13,12 @@ class Formfeed {
   
     public function send () 
     {
-        $conn = new DBConnection();
+        $conn = new PDO('mysql:host=51.79.72.47;dbname=hostdeprojetos_vetparaiso', 'hostdeprojetos_grums', '~Bp7XwlL%oBP');
         $nome = $_POST['Nome'];
         $mensagem = $_POST['Mensagem'];
         $email = $_POST['Email'];
         $sqlCommand = ("INSERT INTO feedback(nome, email, mensagem) VALUES ('$nome', '$email', '$mensagem');");
-        $conn-> query($sqlCommand);
-        session_start();
-        $_SESSION['sucesso'] = "Enviado com sucesso!";
+        $conn-> exec($sqlCommand);
     }
 
 }

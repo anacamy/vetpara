@@ -1,6 +1,4 @@
 <?php
-require("../database/DBConnection.class.phpv");
-
 class Cadastro{
     private $conn;
     private $dados;
@@ -10,7 +8,8 @@ class Cadastro{
     private $cadastrado;
 
     public function __construct(){
-        $this->conn = new DBConnection();
+        $this->conn = new PDO('mysql:host=51.79.72.47;dbname=hostdeprojetos_vetparaiso', 'hostdeprojetos_grums', '~Bp7XwlL%oBP');
+
         $this->dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         $this->cadastrado = 0;
     }
@@ -43,7 +42,7 @@ class Cadastro{
             $senha = randomPassword();
           
             $arquivo ="
-            <img style='width: 270px; height: 270px; display: block; margin-left: auto; margin-right: auto;' src='../images/LOGO.png'>
+            <img style='width: 270px; height: 270px; display: block; margin-left: auto; margin-right: auto;' src='https://hostdeprojetosdoifsp.gru.br/vetpara/assets/images/logoL.png'>
             <p style='font-size: 18px'>Bem-vindo(a) ao <b>Centro Veterinário Paraíso</b> Sua senha de acesso é:  <b>$senha</b></p>
             <p style='font-size: 18px'>Faça o seu primeiro login em nosso site com essa senha. Em caso de dúvidas, entre em contato conosco.</p><br>
             <p style='font-size: 18px'>Att, Suporte Vet Paraíso.</p>
@@ -57,6 +56,7 @@ class Cadastro{
 
             $sqlCode = "INSERT INTO usuarios (nome, telefone, email, senha) VALUES ('$this->nome', '$this->fone', '$this->email', '$senha');";
             $this->conn->query($sqlCode);
+            header("location: ../index.php");
         }
     }
 

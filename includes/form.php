@@ -55,7 +55,7 @@
       <div class="">
 
         <script src="https://accounts.google.com/gsi/client" async defer></script>
-        <div id="g_id_onload" data-client_id="295882943021-cq6shejjubbn201h9guh65hdpn08ru20.apps.googleusercontent.com" data-login_uri="http://localhost/vetpara/login.php" data-auto_prompt="false">
+        <div id="g_id_onload" data-client_id="118814873701-pjtvs8ghqgrbrt8s1bhlcddjbpqc5jre.apps.googleusercontent.com" data-login_uri="https://hostdeprojetosdoifsp.gru.br/vetpara/login.php" data-auto_prompt="false">
         </div>
         <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left">
         </div>

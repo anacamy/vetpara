@@ -27,7 +27,7 @@ if ($_POST['g_csrf_token'] != $cookie) {
 
 // Get $id_token via HTTPS POST.
 
-$client = new GoogleClient(['client_id' => '295882943021-cq6shejjubbn201h9guh65hdpn08ru20.apps.googleusercontent.com']); 
+$client = new GoogleClient(['client_id' => '118814873701-pjtvs8ghqgrbrt8s1bhlcddjbpqc5jre.apps.googleusercontent.com']); 
  // Specify the CLIENT_ID of the app that accesses the backend
 $payload = $client->verifyIdToken($_POST['credential']);
 if (isset($payload['email'])) {
